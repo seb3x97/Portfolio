@@ -1,37 +1,46 @@
 <script setup lang="ts">
-import Header from "@/components/header/Header.vue";
+import Header from "@/components/main/HeaderView.vue";
 </script>
 
 <template>
-    <Header></Header>
+    <!-- Loader -->
 
-    <RouterView />
+
+    <!-- Page -->
+    <div class="page">
+        <Header></Header>
+
+        <!-- Content -->
+        <main>
+            <RouterView />
+        </main>
+    </div>
 </template>
 
-<style scoped>
-#page {
-    height: 100%;
-    width: 100%;
-
-    background-color: var(--page-background-color);
-}
+<style lang="scss">
+/* IMPORTS */
+@import '@/assets/scss/import.scss';
 
 #app {
-    display: flex;
-    flex-direction: column;
-    
-    height: 100%;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
 
-    overflow-y: scroll;
-    overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
-#container {
-    flex: 1 1 0;
-    width: 100%;
+.page {
+    @include display(flex);
+    @include flex-direction(column);
+    height: 100vh;
+    width: 100vw;
 
-    padding: var(--page-border-size);
-    padding-top: calc(var(--page-border-size) * 2);
+    main {
+        flex: 1 1 0;
+        width: 100%;
+    }
 }
 </style>
