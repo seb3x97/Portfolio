@@ -1,4 +1,6 @@
 <script lang="ts">
+import { useMotion } from '@vueuse/motion';
+
 /**
  * Vue Editor
  */
@@ -31,6 +33,21 @@ export default {
 </script>
 
 <template>
+    <div ref="test"
+    v-motion
+    :initial="{
+        opacity: 0,
+        y: 100,
+    }"
+    :visible="{
+        opacity: 1,
+        y: 0,
+    }"
+    :delay="200"
+    >
+        <p>Text 1</p>
+        <p>Text 2</p>
+    </div>
     <div id="component">
         <section>
             <img class="icon" src="@/assets/icons/infos/stats/number-views.svg">

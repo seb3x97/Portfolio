@@ -1,37 +1,6 @@
-<script lang="ts">
-/*
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            console.log(entry);
-
-            console.log("we");
-            if(entry.isIntersecting) {
-                entry.target.classList.add('show');
-            } else {
-                console.log("no");
-            }
-        });
-    });
-
-    const hiddenElements = document.querySelectorAll('.hidden');
-    hiddenElements.forEach((el) => observer.observe(el));
-
-    console.log("BOnjour");*/
-
+<script setup lang="ts">
 import SkillsProgress from '@/components/infos/SkillsView.vue';
 import StatsInfo from '@/components/infos/StatsView.vue';
-
-export default {
-    data() {
-        return {
-            
-        };
-    },
-    components: {
-        SkillsProgress,
-        StatsInfo,
-    }
-}
 </script>
 
 <template>
@@ -90,10 +59,10 @@ export default {
                 </div>
             </div>
             <div class="content">
-                <StatsInfo />
+                <StatsInfo/>
             </div>
             <div class="content">
-                <SkillsProgress />
+                <SkillsProgress/>
             </div>
         </div>
     </div>

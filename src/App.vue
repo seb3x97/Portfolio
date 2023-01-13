@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Header from "@/components/main/HeaderView.vue";
+import HeaderView from "@/components/main/HeaderView.vue";
 </script>
 
 <template>
@@ -8,11 +8,11 @@ import Header from "@/components/main/HeaderView.vue";
 
     <!-- Page -->
     <div class="page">
-        <Header></Header>
+        <HeaderView/>
 
         <!-- Content -->
         <main>
-            <RouterView />
+            <RouterView/>
         </main>
     </div>
 </template>
