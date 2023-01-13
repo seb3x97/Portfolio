@@ -3,7 +3,7 @@
     <header class="header">
         <div class="content">
             <nav class="navigation">
-                <RouterLink to="/">INFO<span></span></RouterLink>
+                <RouterLink to="/">HOME<span></span></RouterLink>
                 <RouterLink to="/work">WORK<span></span></RouterLink>
                 <RouterLink to="/editor">EDITOR<span></span></RouterLink>
                 <RouterLink class="last" to="/contact">CONTACT<span></span></RouterLink>

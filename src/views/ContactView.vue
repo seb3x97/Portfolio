@@ -3,7 +3,6 @@
  * Vue Editor
  */
 export default {
-	name: "PageContact",
 	data() {
 		return {
 			buttonActived: false,
