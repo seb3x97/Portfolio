@@ -2,19 +2,16 @@
     <!-- Container -->
     <div class="container">
         <div id="info">
-            <div v-motion-slide-visible-once-right>
-                <p>Text 1</p>
-                <p>Text 2</p>
-            </div>
-
-            <div
-            class="target"
-            v-motion
-            :initial="{ opacity: 0, y: 100 }"
-            :visible-once="{ opacity: 1, y: 0}"
-            >
-                <p>Text 1</p>
-                <p>Text 2</p>
+            <div class="content" v-for="index in 10">
+                <div
+                v-motion
+                :initial="{ opacity: 0, x: 100 }"
+                :visible="{ opacity: 1, x: 0, transition: { delay: 1000 }}"
+                :delay="300"
+                >
+                    <p>Text 1</p>
+                    <p>Text 2</p>
+                </div>
             </div>
         </div>
     </div>
@@ -76,7 +73,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    min-height: 200px;
 }
 
 .hidden {
