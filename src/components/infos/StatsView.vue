@@ -1,5 +1,11 @@
 <script lang="ts">
-import { useMotion } from '@vueuse/motion';
+/* IMPORTS */
+
+//Libraries
+import gsap from 'gsap';
+
+//Components
+import StatsViewElement from './StatsElementView.vue';
 
 /**
  * Vue Editor
@@ -7,14 +13,24 @@ import { useMotion } from '@vueuse/motion';
 export default {
 	data() {
 		return {
+            number: 0,
+            tweened: 0,
             infos: {
                 startCodeYear: 2018,
-                cupOfCoffeePerYear: 5 * 52,
+                cupOfCoffeePerYear: 52 * 5,
                 numberOfCodeLines: 50230,
                 githubViews: 32,
-            }
+            },
 		};
 	},
+    components: {
+        StatsViewElement,
+    },
+    watch: {
+        number(n) {
+            gsap.to(this, { duration: 2, tweened: Number(n) || 0});
+        },
+    },
     methods: {
         getNumberOfYears() {
             return (new Date().getFullYear() - this.infos.startCodeYear);
@@ -33,43 +49,28 @@ export default {
 </script>
 
 <template>
-    <div ref="test"
-    v-motion
-    :initial="{
-        opacity: 0,
-        y: 100,
-    }"
-    :visible="{
-        opacity: 1,
-        y: 0,
-    }"
-    :delay="200"
-    >
-        <p>Text 1</p>
-        <p>Text 2</p>
-    </div>
-    <div id="component">
-        <section>
-            <img class="icon" src="@/assets/icons/infos/stats/number-views.svg">
-            <p class="number">{{ getNumberOfVues() }}</p>
-            <p class="description">Nombre de vues</p>
-        </section>
-        <section>
-            <img class="icon" src="@/assets/icons/infos/stats/number-years.svg">
-            <p class="number">{{ getNumberOfYears() }}</p>
-            <p class="description">Années d'expériences</p>
-        </section>
-        <section>
-            <img class="icon" src="@/assets/icons/infos/stats/number-coffees.svg">
-            <p class="number">{{ getNumberOfCoffees() }}</p>
-            <p class="description">Tasses de cafés</p>
-        </section>
-        <section>
-            <img class="icon" src="@/assets/icons/infos/stats/number-lines.svg">
-            <p class="number">{{ getNumberOfLines() }}</p>
-            <p class="description">Lignes de code</p>
-        </section>
-    </div>
+    <section id="stats">
+        <StatsViewElement
+            icon="/src/assets/icons/infos/stats/number-views.svg"
+            :count="getNumberOfVues()"
+            description="Nombre de vues">
+        </StatsViewElement>
+        <StatsViewElement
+            icon="/src/assets/icons/infos/stats/number-years.svg"
+            :count="getNumberOfYears()"
+            description="Années d'expériences">
+        </StatsViewElement>
+        <StatsViewElement
+            icon="/src/assets/icons/infos/stats/number-coffees.svg"
+            :count="getNumberOfCoffees()"
+            description="Tasses de cafés">
+        </StatsViewElement>
+        <StatsViewElement
+            icon="/src/assets/icons/infos/stats/number-lines.svg"
+            :count="getNumberOfLines()"
+            description="Lignes de code">
+        </StatsViewElement>
+    </section>
 </template>
 
 <style scoped lang="scss">
@@ -77,37 +78,10 @@ export default {
 @import '@/assets/scss/import.scss';
 
 /* Component */
-#component {
+#stats {
     @include display(flex);
     @include flex-direction(row);
-
-
-    section {
-        @include display(flex);
-        @include flex-direction(column);
-        justify-content: center;
-        align-items: center;
-        padding: 0 32px;
-
-        .icon {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            height: 40px;
-            width: 40px;
-        }
-
-        .number {
-            font-weight: bold;
-            margin: 6px 0;
-        }
-
-        .description {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: clip;
-        }
-    }
+    flex-wrap: wrap;
+    width: 100%;
 }
 </style>

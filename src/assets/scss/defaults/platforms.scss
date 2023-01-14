@@ -1,4 +1,3 @@
-
 @mixin display($display) {
     display: -webkit-flex;
      display: -webkit-box;
@@ -12,6 +11,11 @@
         -ms-flex-direction: $flex-direction;
          -o-flex-direction: $flex-direction;
             flex-direction: $flex-direction;
+}
+
+@mixin clip-path($clip-path) {
+    -webkit-clip-path: $clip-path;
+            clip-path: $clip-path;
 }
 
 @mixin transform($transform) {
@@ -44,6 +48,13 @@
 }
   
 @mixin keyframes($keyframes) {
+    @-webkit-keyframes #{$keyframes} { @content; }
+       @-moz-keyframes #{$keyframes} { @content; }
+         @-o-keyframes #{$keyframes} { @content; }
+            @keyframes #{$keyframes} { @content; }
+}
+
+@mixin media($keyframes) {
     @-webkit-keyframes #{$keyframes} { @content; }
        @-moz-keyframes #{$keyframes} { @content; }
          @-o-keyframes #{$keyframes} { @content; }

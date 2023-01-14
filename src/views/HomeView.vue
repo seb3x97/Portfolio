@@ -1,71 +1,21 @@
 <script setup lang="ts">
-import SkillsProgress from '@/components/infos/SkillsView.vue';
-import StatsInfo from '@/components/infos/StatsView.vue';
+import StatsView from '@/components/infos/StatsView.vue';
+import SkillsView from '@/components/infos/SkillsView.vue';
+import FooterView from '@/components/main/FooterView.vue';
 </script>
 
 <template>
     <!-- Container -->
-    <div class="container">
-        <div id="info">
-            <div class="content">
-                <div
-                v-motion
-                :initial="{
-                    opacity: 0,
-                    y: 100,
-                }"
-                :visible="{
-                    opacity: 1,
-                    y: 0,
-                }"
-                :delay="200"
-                >
-                    <p>Text 1</p>
-                    <p>Text 2</p>
-                </div>
-            </div>
-            <div class="content">
-                <div
-                v-motion
-                :initial="{
-                    opacity: 0,
-                    y: 100,
-                }"
-                :visible="{
-                    opacity: 1,
-                    y: 0,
-                }"
-                :delay="200"
-                >
-                    <p>Text 1</p>
-                    <p>Text 2</p>
-                </div>
-            </div>
-            <div class="content">
-                <div
-                v-motion
-                :initial="{
-                    opacity: 0,
-                    y: 100,
-                }"
-                :visible="{
-                    opacity: 1,
-                    y: 0,
-                }"
-                :delay="200"
-                >
-                    <p>Text 1</p>
-                    <p>Text 2</p>
-                </div>
-            </div>
-            <div class="content">
-                <StatsInfo/>
-            </div>
-            <div class="content">
-                <SkillsProgress/>
-            </div>
-        </div>
-    </div>
+    <section id="home">
+        <div class="content"><p>Text 1</p></div>
+        <div class="content"><p>Text 1</p></div>
+        <div class="content"><p>Text 1</p></div>
+        <div class="content"><StatsView/></div>
+        <div class="content"><SkillsView/></div>
+        <div class="content"><p>Text 1</p></div>
+        <div class="content"><p>Text 1</p></div>
+        <div class="content"><p>Text 1</p></div>
+    </section>
 </template>
 
 <style scoped lang="scss">
@@ -73,36 +23,29 @@ import StatsInfo from '@/components/infos/StatsView.vue';
 @import '@/assets/scss/import.scss';
 
 /* Container */
-.container {
+#home {
     @include display(flex);
-    @include flex-direction(row);
-	justify-content: center;
-	align-items: center;
-
-    height: 100%;
-    widows: 100%;
-}
-
-#info {
-    height: 100%;
-    width: 20%;
-}
-
-
-#info > .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flex-direction(column);
     align-items: center;
-    min-height: 200px;
+
+    height: 100%;
+    width: 80%;
+
+    > .content {
+        width: 100%;
+        margin-top: 90px;
+    }
 }
 
-.hidden {
-    opacity: 0;
-    transition: all 1s;
+@include for-phone-only {
+    #home > .content {
+        margin-top: 30px;
+    }
 }
 
-.show {
-    opacity: 1;
+@include for-tablet-portrait-up {
+    #home > .content {
+        margin-top: 50px;
+    }
 }
 </style>

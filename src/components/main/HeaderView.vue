@@ -16,11 +16,12 @@
 /* IMPORTS */
 @import '@/assets/scss/import.scss';
 
-/* Header */
+/* Component */
 .header {
     @include display(flex);
     @include flex-direction(row);
     padding: 3.5vw;
+    width: 100%;
 
     .content {
         position: relative;
@@ -69,7 +70,7 @@
 	background-color: white;
 }
 
-@media only screen and (max-width: 700px) {
+@include for-phone-only {
 	.header .content .navigation {
         @include display(flex);
         @include flex-direction(column);

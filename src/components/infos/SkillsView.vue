@@ -33,7 +33,7 @@ export default {
 </script>
 
 <template>
-    <div id="component">
+    <section id="skills">
         <ul v-for="(skill, index) in skills">
             <li>
                 <div class="title">
@@ -59,7 +59,7 @@ export default {
                 </div>
             </li>
         </ul>
-    </div>
+    </section>
 </template>
 
 <style scoped lang="scss">
@@ -67,10 +67,9 @@ export default {
 @import '@/assets/scss/import.scss';
 
 /* Component */
-#component {
+#skills {
     @include display(flex);
     @include flex-direction(column);
-    height: 100%;
     width: 100%;
     padding: 22px;
     border-radius: 5px;
