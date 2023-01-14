@@ -30,16 +30,16 @@ import FooterView from "./components/main/FooterView.vue";
 	display: flex;
 	flex-direction: column;
 
-	height: 100%;
-	width: 100%;
+    min-height: 100vh;
+    width: 100vw;
 }
 
 .page {
     @include display(flex);
     @include flex-direction(column);
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
 
     main {
         flex: 1 1 auto;

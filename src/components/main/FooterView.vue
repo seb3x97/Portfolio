@@ -13,7 +13,7 @@
 
 /* Component */
 #footer {
-    min-height: 300px;
+    height: 300px;
     width: 100%;
     @include clip-path(polygon(0 0, 20% 100px, 100% 0, 100% 100%, 0 100%));
 
