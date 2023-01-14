@@ -23,7 +23,7 @@ import FooterView from "./components/main/FooterView.vue";
 </template>
 
 <style lang="scss">
-/* IMPORTS */
+/* Imports */
 @import '@/assets/scss/import.scss';
 
 #app {
@@ -35,6 +35,7 @@ import FooterView from "./components/main/FooterView.vue";
 }
 
 .page {
+    position: relative;
     @include display(flex);
     @include flex-direction(column);
     align-items: center;
@@ -47,7 +48,6 @@ import FooterView from "./components/main/FooterView.vue";
         @include flex-direction(row);
         justify-content: center;
         width: 100%;
-        max-width: 1350px;
     }
 }
 </style>

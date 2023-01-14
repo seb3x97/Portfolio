@@ -1,5 +1,5 @@
 <script lang="ts">
-/* IMPORTS */
+/* Imports */
 
 //Libraries
 import gsap from 'gsap';
@@ -21,6 +21,28 @@ export default {
                 numberOfCodeLines: 50230,
                 githubViews: 32,
             },
+            stats: [
+                {
+                    icon: '/src/assets/icons/home/stats/number-views.svg',
+                    count: this.getNumberOfVues,
+                    description: "Vues sur github"
+                },
+                {
+                    icon: '/src/assets/icons/home/stats/number-years.svg',
+                    count: this.getNumberOfYears,
+                    description: "Années d'expériences"
+                },
+                {
+                    icon: '/src/assets/icons/home/stats/number-coffees.svg',
+                    count: this.getNumberOfCoffees,
+                    description: "Tasses de cafés"
+                },
+                {
+                    icon: '/src/assets/icons/home/stats/number-lines.svg',
+                    count: this.getNumberOfLines,
+                    description: "Lignes de code"
+                },
+            ],
 		};
 	},
     components: {
@@ -50,31 +72,18 @@ export default {
 
 <template>
     <section id="stats">
-        <StatsViewElement
-            icon="/src/assets/icons/infos/stats/number-views.svg"
-            :count="getNumberOfVues()"
-            description="Nombre de vues">
-        </StatsViewElement>
-        <StatsViewElement
-            icon="/src/assets/icons/infos/stats/number-years.svg"
-            :count="getNumberOfYears()"
-            description="Années d'expériences">
-        </StatsViewElement>
-        <StatsViewElement
-            icon="/src/assets/icons/infos/stats/number-coffees.svg"
-            :count="getNumberOfCoffees()"
-            description="Tasses de cafés">
-        </StatsViewElement>
-        <StatsViewElement
-            icon="/src/assets/icons/infos/stats/number-lines.svg"
-            :count="getNumberOfLines()"
-            description="Lignes de code">
-        </StatsViewElement>
+        <template v-for="stat in stats">
+            <StatsViewElement
+                :icon="stat.icon"
+                :count="stat.count()"
+                :description="stat.description">
+            </StatsViewElement>
+        </template>
     </section>
 </template>
 
 <style scoped lang="scss">
-/* IMPORTS */
+/* Imports */
 @import '@/assets/scss/import.scss';
 
 /* Component */

@@ -1,7 +1,6 @@
 <script lang="ts">
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
 gsap.registerPlugin(ScrollTrigger);
 
 /**
@@ -11,7 +10,7 @@ export default {
     props: {
         icon: String,
         count: Number,
-        description: String
+        description: String,
     },
 	data() {
 		return {
@@ -32,7 +31,10 @@ export default {
         let animation: gsap.core.Tween | null = null;
 
         function enter() {
-            animation = gsap.to(me, { duration: 5, number: Number(me.count) });
+            animation = gsap.to(me, {
+                duration: 4,
+                number: Number(me.count)
+            });
         };
 
         function enterBack() {
@@ -40,14 +42,13 @@ export default {
             me.number = 0;
         }
 
-        gsap.to('.number', {
-            duration: 5,
+        gsap.to(this.$refs.number as Element, {
             scrollTrigger: {
                 trigger: '.number',
+                end: "bottom 90%",
                 start: "top 100%",
-                end: "bottom 100%",
                 onEnter: enter,
-                onEnterBack: enterBack,
+                onLeaveBack: enterBack,
             },
         });
     },
@@ -74,25 +75,25 @@ export default {
 </script>
 
 <template>
-    <section id="stats-element">
+    <section class="stats-element">
         <img class="icon" :src="icon">
-        <p class="number">{{ text }}</p>
+        <p ref="number" class="number">{{ text }}</p>
         <p class="description">{{  description }}</p>
     </section>
 </template>
 
 <style scoped lang="scss">
-/* IMPORTS */
+/* Imports */
 @import '@/assets/scss/import.scss';
 
 /* Component */
-#stats-element {
+.stats-element {
     @include display(flex);
     @include flex-direction(column);
     justify-content: center;
     align-items: center;
 
-    .icon {
+    > .icon {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -101,12 +102,12 @@ export default {
         width: 40px;
     }
 
-    .number {
+    > .number {
         font-weight: bold;
         margin: 6px 0;
     }
 
-    .description {
+    > .description {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: clip;
@@ -114,7 +115,7 @@ export default {
 }
 
 @include for-phone-only {
-    #stats-element {
+    .stats-element {
         flex: none;
         width: 100%;
         margin: 24px 0;
@@ -122,14 +123,14 @@ export default {
 }
 
 @include for-tablet-portrait-up {
-    #stats-element {
+    .stats-element {
         flex: 1 0 50%;
         margin: 32px 0;
     }
 }
 
 @include for-tablet-landscape-up {
-    #stats-element {
+    .stats-element {
         flex: 1 0 auto;
         padding: 16px;
     }

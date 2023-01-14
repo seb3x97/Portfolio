@@ -1,6 +1,6 @@
 <template>
     <!-- Header -->
-    <header class="header">
+    <header id="header">
         <div class="content">
             <nav class="navigation">
                 <RouterLink to="/">HOME<span></span></RouterLink>
@@ -13,17 +13,19 @@
 </template>
 
 <style scoped lang="scss">
-/* IMPORTS */
+/* Imports */
 @import '@/assets/scss/import.scss';
 
 /* Component */
-.header {
+#header {
+    position: absolute;
     @include display(flex);
     @include flex-direction(row);
     padding: 3.5vw;
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
 
-    .content {
+    > .content {
         position: relative;
         @include display(flex);
         @include flex-direction(row);
@@ -32,7 +34,7 @@
 
         width: 100%;
 
-        .navigation {
+        > .navigation {
             display: flex;
             flex-direction: row;
 
@@ -41,13 +43,14 @@
             > a {
                 font-family: "GingerBold";
                 font-size: 1.1rem;
+                font-weight: bold;
 
                 text-align: center;
                 text-decoration: none;
                 color: var(--color-heading);
             }
 
-            .last {
+            > .last {
                 position: absolute;
 	            right: 0;
             }
@@ -64,14 +67,14 @@
 	display: block;
 
 	width: 100%;
-	height: 1px;
+	height: 3px;
 	bottom: 0;
 
-	background-color: white;
+	background-color: black;
 }
 
 @include for-phone-only {
-	.header .content .navigation {
+	#header > .content > .navigation {
         @include display(flex);
         @include flex-direction(column);
 
@@ -85,7 +88,7 @@
             border-radius: 5px;
         }
 
-        .last {
+        > .last {
             position: static;
         }
     }

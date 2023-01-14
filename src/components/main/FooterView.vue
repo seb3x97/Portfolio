@@ -3,12 +3,13 @@
         <h1>Test</h1>
         <div>
             <h3>MERCI</h3>
+            <p>© Copyright 2022 Sébastien Voide</p>
         </div>
     </section>
 </template>
 
 <style scoped lang="scss">
-/* IMPORTS */
+/* Imports */
 @import '@/assets/scss/import.scss';
 
 /* Component */

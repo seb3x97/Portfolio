@@ -33,7 +33,7 @@ export default {
                 <div class="button">
                     <button
                         @click="buttonActived = !buttonActived"
-                        v-bind:class="buttonActived ? 'active' : ''"
+                        :class="{ 'active' : buttonActived }"
                     >
                         <p v-if="!buttonActived">CONTACT ME</p>
                         <img
@@ -44,7 +44,7 @@ export default {
                 </div>
             </section>
             <!-- Links -->
-            <nav v-bind:class="buttonActived ? 'active' : ''">
+            <nav :class="{ 'active' : buttonActived }">
                 <!-- Github -->
                 <a
                     class="element"
@@ -84,7 +84,7 @@ export default {
 </template>
 
 <style scoped lang="scss">
-/* IMPORTS */
+/* Imports */
 @import '@/assets/scss/import.scss';
 
 /* Container */

@@ -1,25 +1,26 @@
 <script setup lang="ts">
-import StatsView from '@/components/infos/StatsView.vue';
-import SkillsView from '@/components/infos/SkillsView.vue';
-import FooterView from '@/components/main/FooterView.vue';
+import CarouselView from '@/components/home/CarouselView.vue';
+import StatsView from '@/components/home/StatsView.vue';
+import SkillsView from '@/components/home/SkillsView.vue';
 </script>
 
 <template>
     <!-- Container -->
     <section id="home">
-        <div class="content"><p>Text 1</p></div>
-        <div class="content"><p>Text 1</p></div>
-        <div class="content"><p>Text 1</p></div>
-        <div class="content"><StatsView/></div>
-        <div class="content"><SkillsView/></div>
-        <div class="content"><p>Text 1</p></div>
-        <div class="content"><p>Text 1</p></div>
-        <div class="content"><p>Text 1</p></div>
+        <CarouselView/>
+        <div><p>Text 1</p></div>
+        <div><p>Text 1</p></div>
+        <div><p>Text 1</p></div>
+        <StatsView class="limited"/>
+        <SkillsView class="limited"/>
+        <div><p>Text 1</p></div>
+        <div><p>Text 1</p></div>
+        <div><p>Text 1</p></div>
     </section>
 </template>
 
 <style scoped lang="scss">
-/* IMPORTS */
+/* Imports */
 @import '@/assets/scss/import.scss';
 
 /* Container */
@@ -27,25 +28,29 @@ import FooterView from '@/components/main/FooterView.vue';
     @include display(flex);
     @include flex-direction(column);
     align-items: center;
-
     height: 100%;
-    width: 80%;
+    width: 100%;
 
-    > .content {
+    > * {
         width: 100%;
-        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
+    > .limited {
+        max-width: 1300px;
+        width: 80%;
     }
 }
 
 @include for-phone-only {
-    #home > .content {
-        margin-top: 30px;
+    #home > * {
+        margin-bottom: 30px;
     }
 }
 
 @include for-tablet-portrait-up {
-    #home > .content {
-        margin-top: 50px;
+    #home > * {
+        margin-bottom: 50px;
     }
 }
 </style>
