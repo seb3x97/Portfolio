@@ -114,8 +114,8 @@ export default {
     <section id="carousel">
         <div class="container">
             <div class="actions">
-                <button class="left" @click="stepSlidePrevious()"><img src="/src/assets/icons/home/carousel/arrow-left.svg" alt="Flèche gauche pour changer l'image du carrousel"></button>
-                <button class="right" @click="stepSlideNext()"><img src="/src/assets/icons/home/carousel/arrow-right.svg" alt="Flèche droite pour changer l'image du carrousel"></button>
+                <button class="left" @click="stepSlidePrevious()"><img src="/icons/home/carousel/arrow-left.svg" alt="Flèche gauche pour changer l'image du carrousel"></button>
+                <button class="right" @click="stepSlideNext()"><img src="/icons/home/carousel/arrow-right.svg" alt="Flèche droite pour changer l'image du carrousel"></button>
             </div>
             <div ref="slides" class="slides">
                 <div v-for="(image, index) in images" class="slide" :class="{ 'active': index === 0}">

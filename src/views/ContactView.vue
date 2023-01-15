@@ -21,7 +21,7 @@ export default {
             <!-- Header -->
             <section>
                 <div class="content">
-                    <img class="image" src="../assets/images/contact/avatar.jpg" />
+                    <img class="image" src="/images/contact/avatar.jpg" />
                     <div class="title">
                         <h3>Sébastien Voide</h3>
                         <p>
@@ -38,7 +38,7 @@ export default {
                         <p v-if="!buttonActived">CONTACT ME</p>
                         <img
                             v-if="buttonActived"
-                            src="../assets/icons/contact/arrow-right.svg"
+                            src="/icons/contact/arrow-right.svg"
                         />
                     </button>
                 </div>
@@ -52,14 +52,14 @@ export default {
                     target="_blank"
                 >
                     <div class="content">
-                        <img class="image" src="../assets/icons/contact/github.svg" />
+                        <img class="image" src="/icons/contact/github.svg" />
                         <div class="title">
                             <p>Github</p>
                             <p class="more">{{ github }}</p>
                         </div>
                         <img
                             class="icon"
-                            src="../assets/icons/contact/arrow-right.svg"
+                            src="/icons/contact/arrow-right.svg"
                         />
                     </div>
                 </a>

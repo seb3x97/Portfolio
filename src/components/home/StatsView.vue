@@ -23,22 +23,22 @@ export default {
             },
             stats: [
                 {
-                    icon: '/src/assets/icons/home/stats/number-views.svg',
+                    icon: '/icons/home/stats/number-views.svg',
                     count: this.getNumberOfVues,
                     description: "Vues sur github"
                 },
                 {
-                    icon: '/src/assets/icons/home/stats/number-years.svg',
+                    icon: '/icons/home/stats/number-years.svg',
                     count: this.getNumberOfYears,
                     description: "Années d'expériences"
                 },
                 {
-                    icon: '/src/assets/icons/home/stats/number-coffees.svg',
+                    icon: '/icons/home/stats/number-coffees.svg',
                     count: this.getNumberOfCoffees,
                     description: "Tasses de cafés"
                 },
                 {
-                    icon: '/src/assets/icons/home/stats/number-lines.svg',
+                    icon: '/icons/home/stats/number-lines.svg',
                     count: this.getNumberOfLines,
                     description: "Lignes de code"
                 },
