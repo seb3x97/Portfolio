@@ -15,15 +15,15 @@ export default {
             images: [
                 {
                     title: "Image d'un ordinateur Apple",
-                    src: '/src/assets/images/home/carousel/image1.jpg',
+                    src: '/images/home/carousel/image1.jpg',//'/src/assets/images/home/carousel/image1.jpg',
                 },
                 {
                     title: "Image d'un ordinateur Apple",
-                    src: '/src/assets/images/home/carousel/image2.jpg',
+                    src: '/images/home/carousel/image2.jpg',
                 },
                 {
                     title: "Image d'un ordinateur Apple",
-                    src: '/src/assets/images/home/carousel/image3.jpg',
+                    src: '/images/home/carousel/image3.jpg',
                 },
             ],
 		};

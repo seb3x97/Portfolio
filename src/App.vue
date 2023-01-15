@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HeaderView from "@/components/main/HeaderView.vue";
-import FooterView from "./components/main/FooterView.vue";
+import FooterView from "@/components/main/FooterView.vue";
 </script>
 
 <template>

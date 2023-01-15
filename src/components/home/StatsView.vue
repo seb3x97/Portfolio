@@ -5,7 +5,7 @@
 import gsap from 'gsap';
 
 //Components
-import StatsViewElement from './StatsElementView.vue';
+import StatsElementView from '@/components/home/StatsElementView.vue';
 
 /**
  * Vue Editor
@@ -46,7 +46,7 @@ export default {
 		};
 	},
     components: {
-        StatsViewElement,
+        StatsElementView,
     },
     watch: {
         number(n) {
@@ -73,11 +73,11 @@ export default {
 <template>
     <section id="stats">
         <template v-for="stat in stats">
-            <StatsViewElement
+            <StatsElementView
                 :icon="stat.icon"
                 :count="stat.count()"
                 :description="stat.description">
-            </StatsViewElement>
+            </StatsElementView>
         </template>
     </section>
 </template>
