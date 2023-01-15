@@ -2,7 +2,7 @@
 /* Imports */
 
 //Components
-import SkillsElementView from '@/components/home/SkillsElementView.vue';
+import SkillsElementView from '@/components/pages/home/SkillsElementView.vue';
 
 /**
  * Vue Editor

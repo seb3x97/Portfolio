@@ -18,12 +18,14 @@
 
 /* Component */
 #header {
-    position: absolute;
+    position: fixed;
     @include display(flex);
     @include flex-direction(row);
-    padding: 3.5vw;
+    padding: min(3.5vw, 3.5vh);
     width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 
     > .content {
         position: relative;

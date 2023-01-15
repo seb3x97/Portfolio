@@ -5,7 +5,13 @@
 import gsap from 'gsap';
 
 //Components
-import StatsElementView from '@/components/home/StatsElementView.vue';
+import StatsElementView from '@/components/pages/home/StatsElementView.vue';
+
+/* Constantes */
+
+//1
+const DATE_START_CODE = new Date(2018, 6, 12);              //Date à la quelle j'ai commencer à coder (~ 12.07.2018)
+const NUMBER_WORK_DAY_PER_YEAR = (52 - 5) * 5;              //Nombre de jour par année de travail => (semaine par ans - semaines de congés) * nombre de jour de travail dans une semaine
 
 /**
  * Vue Editor
@@ -13,33 +19,29 @@ import StatsElementView from '@/components/home/StatsElementView.vue';
 export default {
 	data() {
 		return {
-            number: 0,
-            tweened: 0,
             infos: {
-                startCodeYear: 2018,
-                cupOfCoffeePerYear: 52 * 5,
-                numberOfCodeLines: 50230,
-                githubViews: 32,
+                numberOfCodeLines: 50230,                       //Nombre de lignes de code
+                githubViews: 32,                                //Nombre de vues sur github
             },
             stats: [
                 {
                     icon: '/icons/home/stats/number-views.svg',
-                    count: this.getNumberOfVues,
+                    count: this.getNumberVues,
                     description: "Vues sur github"
                 },
                 {
                     icon: '/icons/home/stats/number-years.svg',
-                    count: this.getNumberOfYears,
+                    count: this.getNumberYears,
                     description: "Années d'expériences"
                 },
                 {
                     icon: '/icons/home/stats/number-coffees.svg',
-                    count: this.getNumberOfCoffees,
+                    count: this.getNumberCoffees,
                     description: "Tasses de cafés"
                 },
                 {
                     icon: '/icons/home/stats/number-lines.svg',
-                    count: this.getNumberOfLines,
+                    count: this.getNumberLines,
                     description: "Lignes de code"
                 },
             ],
@@ -48,22 +50,31 @@ export default {
     components: {
         StatsElementView,
     },
-    watch: {
-        number(n) {
-            gsap.to(this, { duration: 2, tweened: Number(n) || 0});
-        },
+    mounted() {
+        console.log(this.getWorkingDays());
     },
     methods: {
-        getNumberOfYears() {
-            return (new Date().getFullYear() - this.infos.startCodeYear);
+        getWorkingDays() {
+            const from = new Date(DATE_START_CODE.getTime());
+            const to = new Date();
+
+            let odays = 6 - from.getDay();
+            if(odays == 6) odays = 0;
+
+            from.setFullYear(from.getFullYear(), from.getMonth(), from.getDay() + odays);
+
+            return Math.floor(((((to.getTime() - from.getTime()) / 1000 / 60 / 60 / 24) / 7) * 5) + odays);
         },
-        getNumberOfCoffees() {
-            return this.infos.cupOfCoffeePerYear * this.getNumberOfYears();
+        getNumberYears() {
+            return (new Date().getFullYear() - DATE_START_CODE.getFullYear());
         },
-        getNumberOfLines() {
+        getNumberCoffees() {
+            return this.getNumberYears() * NUMBER_WORK_DAY_PER_YEAR;
+        },
+        getNumberLines() {
             return this.infos.numberOfCodeLines;
         },
-        getNumberOfVues() {
+        getNumberVues() {
             return this.infos.githubViews;
         },
     },

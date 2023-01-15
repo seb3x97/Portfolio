@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import CarouselView from '@/components/home/CarouselView.vue';
-import StatsView from '@/components/home/StatsView.vue';
-import SkillsView from '@/components/home/SkillsView.vue';
+import CarouselView from '@/components/pages/home/CarouselView.vue';
+import StatsView from '@/components/pages/home/StatsView.vue';
+import SkillsView from '@/components/pages/home/SkillsView.vue';
 </script>
 
 <template>

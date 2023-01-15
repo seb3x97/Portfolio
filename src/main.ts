@@ -3,7 +3,7 @@ import { createPinia } from "pinia";
 import { MotionPlugin } from "@vueuse/motion";
 import gsap from "gsap";
 
-import App from "@/App.vue";
+import App from "@/components/App.vue";
 import router from "./router";
 
 import "@/assets/scss/import.scss";

@@ -1,6 +1,10 @@
 <script lang="ts">
 /* CONSTANTES */
 
+//Imports
+import TitleView from '@/components/pages/home/TitleView.vue';
+
+//Temps (interval) entre chaque animation automatique
 const INTERVAL_TIMEOUT = 10_000;
 
 /**
@@ -28,6 +32,9 @@ export default {
             ],
 		};
 	},
+    components: {
+        TitleView,
+    },
     mounted() {
         //On démarre la boucle d'animation
         this.resetInterval();
@@ -113,15 +120,24 @@ export default {
 <template>
     <section id="carousel">
         <div class="container">
-            <div class="actions">
-                <button class="left" @click="stepSlidePrevious()"><img src="/icons/home/carousel/arrow-left.svg" alt="Flèche gauche pour changer l'image du carrousel"></button>
-                <button class="right" @click="stepSlideNext()"><img src="/icons/home/carousel/arrow-right.svg" alt="Flèche droite pour changer l'image du carrousel"></button>
-            </div>
             <div ref="slides" class="slides">
                 <div v-for="(image, index) in images" class="slide" :class="{ 'active': index === 0}">
                     <img ref="images" :src="image.src" :alt="image.title">
                 </div>
             </div>
+            <div class="actions">
+                <button class="left" @click="stepSlidePrevious()">
+                    <div>
+                        <img src="/icons/home/carousel/arrow-left.svg" alt="Flèche gauche pour changer l'image du carrousel">
+                    </div>
+                </button>
+                <button class="right" @click="stepSlideNext()">
+                    <div>
+                        <img src="/icons/home/carousel/arrow-right.svg" alt="Flèche droite pour changer l'image du carrousel">
+                    </div>
+                </button>
+            </div>
+            <TitleView/>
         </div>
     </section>
 </template>
@@ -135,6 +151,10 @@ export default {
     height: 100vh;
     width: 100%;
 
+    > .container:hover > .actions {
+        display: block;
+    }
+
     > .container {
         position: relative;
         height: 100%;
@@ -142,37 +162,64 @@ export default {
 
         > .actions {
             position: absolute;
-            display: none;
             height: 100%;
             width: 100%;
+            z-index: 1;
 
             > button {
                 position: absolute;
                 background-color: transparent;
-                height: 80px;
-                width: 80px;
+                height: 8vw;
+                width: 8vw;
+                max-height: 5vw;
+                max-width: 5vw;
                 top: 50%;
                 transform: translateY(-50%);
                 cursor: pointer;
 
-                > img {
+                > div {
+                    position: relative;
                     height: 100%;
                     width: 100%;
+
+                    > img {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                    }
                 }
             }
 
             > button.left {
-                left: 0;
+                left: 20px;
             }
 
             > button.right {
+                right: 20px;
+            }
+
+            > button.left > div > img {
                 right: 0;
+            }
+
+            > button.right > div > img {
+                left: 0;
+            }
+
+            > button.left:hover > div > img {
+                @include animation(arrow-left 0.5s ease-in-out infinite);
+            }
+
+            > button.right:hover > div > img {
+                @include animation(arrow-right 0.5s ease-in-out infinite);
             }
         }
 
         > .slides {
+            position: absolute;
             height: 100%;
             width: 100%;
+            z-index: -1;
 
             > .slide {
                 overflow: hidden;
@@ -180,9 +227,7 @@ export default {
                 height: 100%;
                 width: 100%;
                 opacity: 0;
-                z-index: -1;
-                //@include transition(transform .6s ease-in-out opacity 3 ease-in-out);
-                @include transition(opacity 1s ease-in-out);
+                @include transition(opacity 0.4s ease-in-out);
 
                 > img {
                     position: absolute;
@@ -199,9 +244,29 @@ export default {
             }
         }
     }
+}
 
-    > .container:hover > .actions {
-        display: block;
+@include keyframes('arrow-left') {
+    from {
+        right: 0;
+    }
+    50% {
+        right: 5px;
+    }
+    to {
+        right: 0;
+    }
+}
+
+@include keyframes('arrow-right') {
+    from {
+        left: 0;
+    }
+    50% {
+        left: 5px;
+    }
+    to {
+        left: 0;
     }
 }
 </style>
