@@ -67,14 +67,14 @@ export default {
                 <!-- Email -->
                 <a class="element" :href="`mailto:${email}`" target="_blank">
                     <div class="content">
-                        <img class="image" src="../assets/icons/contact/gmail.svg" />
+                        <img class="image" src="/icons/contact/gmail.svg" />
                         <div class="title">
                             <p>Email</p>
                             <p class="more">{{ email }}</p>
                         </div>
                         <img
                             class="icon"
-                            src="../assets/icons/contact/arrow-right.svg"
+                            src="/icons/contact/arrow-right.svg"
                         />
                     </div>
                 </a>
