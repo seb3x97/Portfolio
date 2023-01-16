@@ -2,6 +2,7 @@
 import CarouselView from '@/components/pages/home/CarouselView.vue';
 import StatsView from '@/components/pages/home/StatsView.vue';
 import SkillsView from '@/components/pages/home/SkillsView.vue';
+import ProjectView from '@/components/pages/home/ProjectsView.vue';
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import SkillsView from '@/components/pages/home/SkillsView.vue';
         <div><p>Text 1</p></div>
         <div><p>Text 1</p></div>
         <div><p>Text 1</p></div>
+        <ProjectView/>
     </section>
 </template>
 
