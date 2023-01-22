@@ -22,7 +22,7 @@ export default {
                 },
                 {
                     html: 'https://github.com/seb3x97/AudioAnalyser/blob/main/index.html',
-                    name: 'AudioAnalyser',
+                    name: 'Audio',
                     icon: '/images/images/home/projects/audioAnalyser.png',
                 },
             ]
