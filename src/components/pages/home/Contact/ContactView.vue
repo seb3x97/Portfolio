@@ -34,7 +34,7 @@ export default {
                 <!-- Header -->
                 <section>
                     <div class="content">
-                        <img class="image" src="/images/contact/avatar.jpg" />
+                        <img class="image" src="/images/images/home/contact/avatar.jpg" />
                         <div class="title">
                             <h3>Sébastien Voide</h3>
                             <p>
@@ -52,7 +52,7 @@ export default {
                             <p v-if="!buttonActived">CONTACTEZ-MOI</p>
                             <img
                                 v-if="buttonActived"
-                                src="/icons/contact/arrow-right.svg"
+                                src="/images/icons/home/contact/arrow-right.svg"
                             />
                         </button>
                     </div>
@@ -67,14 +67,14 @@ export default {
                         target="_blank"
                     >
                         <div class="content">
-                            <img class="image" src="/icons/contact/github.svg" />
+                            <img class="image" src="/images/icons/home/contact/github.svg" />
                             <div class="title">
                                 <p>Github</p>
                                 <p class="more">{{ github }}</p>
                             </div>
                             <img
                                 class="icon"
-                                src="/icons/contact/arrow-right.svg"
+                                src="/images/icons/home/contact/arrow-right.svg"
                             />
                         </div>
                     </a>
@@ -82,14 +82,14 @@ export default {
                     <!-- Email -->
                     <a class="element" :href="`mailto:${email}`" target="_blank">
                         <div class="content">
-                            <img class="image" src="/icons/contact/gmail.svg" />
+                            <img class="image" src="/images/icons/home/contact/gmail.svg" />
                             <div class="title">
                                 <p>Email</p>
                                 <p class="more">{{ email }}</p>
                             </div>
                             <img
                                 class="icon"
-                                src="/icons/contact/arrow-right.svg"
+                                src="/images/icons/home/contact/arrow-right.svg"
                             />
                         </div>
                     </a>

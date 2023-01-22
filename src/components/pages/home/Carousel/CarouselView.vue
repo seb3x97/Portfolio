@@ -19,15 +19,15 @@ export default {
             images: [
                 {
                     title: "Image d'un ordinateur Apple",
-                    src: '/images/home/carousel/image1.jpg',//'/src/assets/images/home/carousel/image1.jpg',
+                    src: '/images/images/home/carousel/image1.jpg',//'/src/assets/images/home/carousel/image1.jpg',
                 },
                 {
                     title: "Image d'un ordinateur Apple",
-                    src: '/images/home/carousel/image2.jpg',
+                    src: '/images/images/home/carousel/image2.jpg',
                 },
                 {
                     title: "Image d'un ordinateur Apple",
-                    src: '/images/home/carousel/image3.jpg',
+                    src: '/images/images/home/carousel/image3.jpg',
                 },
             ],
 		};
@@ -128,12 +128,12 @@ export default {
             <div class="actions">
                 <button class="left" @click="stepSlidePrevious()">
                     <div>
-                        <img src="/icons/home/carousel/arrow-left.svg" alt="Flèche gauche pour changer l'image du carrousel">
+                        <img src="/images/icons/home/carousel/arrow-left.svg" alt="Flèche gauche pour changer l'image du carrousel">
                     </div>
                 </button>
                 <button class="right" @click="stepSlideNext()">
                     <div>
-                        <img src="/icons/home/carousel/arrow-right.svg" alt="Flèche droite pour changer l'image du carrousel">
+                        <img src="/images/icons/home/carousel/arrow-right.svg" alt="Flèche droite pour changer l'image du carrousel">
                     </div>
                 </button>
             </div>

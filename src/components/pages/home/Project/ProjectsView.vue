@@ -18,12 +18,12 @@ export default {
                 {
                     html: 'https://github.com/seb3x97/Dice/blob/main/index.html',
                     name: 'Dice',
-                    icon: '/images/home/projects/dice.png',
+                    icon: '/images/images/home/projects/dice.png',
                 },
                 {
                     html: 'https://github.com/seb3x97/AudioAnalyser/blob/main/index.html',
                     name: 'AudioAnalyser',
-                    icon: '/images/home/projects/audioAnalyser.png',
+                    icon: '/images/images/home/projects/audioAnalyser.png',
                 },
             ]
         };
