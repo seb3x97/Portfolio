@@ -91,6 +91,7 @@ export default {
         setSlide(direction: number) {
             //On récupère le container des slides
             const slides = (this.$refs.slides as HTMLDivElement);
+            if(!slides) return;
 
             //On récupére le prochain index
             let nextIndex = this.slideIndex + direction;
