@@ -75,16 +75,16 @@ export default {
 </script>
 
 <template>
-    <section class="stats-element">
+    <div class="stats-element">
         <img class="icon" :src="icon">
         <p ref="number" class="number">{{ text }}</p>
         <p class="description">{{  description }}</p>
-    </section>
+    </div>
 </template>
 
 <style scoped lang="scss">
 /* Imports */
-@import '@/assets/scss/import.scss';
+@import '@/assets/scss/script.scss';
 
 /* Component */
 .stats-element {

@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import CarouselView from '@/components/pages/home/CarouselView.vue';
-import StatsView from '@/components/pages/home/StatsView.vue';
-import SkillsView from '@/components/pages/home/SkillsView.vue';
+import CarouselView from '@/components/pages/home/Carousel/CarouselView.vue';
+import ProjectsView from '@/components/pages/home/Project/ProjectsView.vue';
+import StatsView from '@/components/pages/home/Stats/StatsView.vue';
+import SkillsView from '@/components/pages/home/Skills/SkillsView.vue';
+import ContactView from '@/components/pages/home/Contact/ContactView.vue';
 </script>
 
 <template>
     <!-- Container -->
     <section id="home">
-        <CarouselView/>
-        <div><p>Text 1</p></div>
-        <div><p>Text 1</p></div>
-        <div><p>Text 1</p></div>
-        <StatsView class="limited"/>
-        <SkillsView class="limited"/>
-        <div><p>Text 1</p></div>
-        <div><p>Text 1</p></div>
-        <div><p>Text 1</p></div>
+        <div><CarouselView/></div>
+        <section class="content">
+            <ProjectsView/>
+            <StatsView/>
+            <SkillsView/>
+            <ContactView/>
+        </section>
     </section>
 </template>
 
 <style scoped lang="scss">
 /* Imports */
-@import '@/assets/scss/import.scss';
+@import '@/assets/scss/script.scss';
 
 /* Container */
 #home {
@@ -33,24 +33,28 @@ import SkillsView from '@/components/pages/home/SkillsView.vue';
 
     > * {
         width: 100%;
-        margin-bottom: 90px;
     }
 
-    > .limited {
-        max-width: 1300px;
+    > .content {
+        @include display(flex);
+        @include flex-direction(column);
+        align-items: center;
+        max-width: 1000px;
         width: 80%;
     }
 }
 
 @include for-phone-only {
-    #home > * {
-        margin-bottom: 30px;
+    #home > .content {
+        gap: 80px;
+        padding: 30px 0;
     }
 }
 
 @include for-tablet-portrait-up {
-    #home > * {
-        margin-bottom: 50px;
+    #home > .content {
+        gap: 160px;
+        padding: 80px 0;
     }
 }
 </style>

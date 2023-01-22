@@ -85,7 +85,7 @@ export default {
 
 <style scoped lang="scss">
 /* Imports */
-@import '@/assets/scss/import.scss';
+@import '@/assets/scss/script.scss';
 
 /* Container */
 .container {

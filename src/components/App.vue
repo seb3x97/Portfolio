@@ -9,29 +9,22 @@ import FooterView from "@/components/layouts/FooterView.vue";
 
     <!-- Page -->
     <div class="page">
-        <!-- Header -->
         <HeaderView/>
-
-        <!-- Content -->
-        <main>
-            <RouterView/>
-        </main>
-
-        <!-- Footer -->
+        <main><RouterView/></main>
         <FooterView/>
     </div>
 </template>
 
 <style lang="scss">
 /* Imports */
-@import '@/assets/scss/import.scss';
+@import '@/assets/scss/script.scss';
 
 #app {
 	display: flex;
 	flex-direction: column;
-
     min-height: 100vh;
     width: 100vw;
+    background-color: var(--color-background-1);
 }
 
 .page {

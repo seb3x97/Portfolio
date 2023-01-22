@@ -2,7 +2,7 @@
 /* CONSTANTES */
 
 //Imports
-import TitleView from '@/components/pages/home/TitleView.vue';
+import TitleView from '@/components/pages/home/Carousel/TitleView.vue';
 
 //Temps (interval) entre chaque animation automatique
 const INTERVAL_TIMEOUT = 10_000;
@@ -91,7 +91,6 @@ export default {
         setSlide(direction: number) {
             //On récupère le container des slides
             const slides = (this.$refs.slides as HTMLDivElement);
-            console.log(slides);
 
             //On récupére le prochain index
             let nextIndex = this.slideIndex + direction;
@@ -144,7 +143,7 @@ export default {
 
 <style scoped lang="scss">
 /* Imports */
-@import '@/assets/scss/import.scss';
+@import '@/assets/scss/script.scss';
 
 /* Component */
 #carousel {
@@ -164,7 +163,7 @@ export default {
             position: absolute;
             height: 100%;
             width: 100%;
-            z-index: 1;
+            z-index: 2;
 
             > button {
                 position: absolute;
@@ -219,7 +218,7 @@ export default {
             position: absolute;
             height: 100%;
             width: 100%;
-            z-index: -1;
+            z-index: 0;
 
             > .slide {
                 overflow: hidden;

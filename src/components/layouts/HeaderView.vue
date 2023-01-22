@@ -3,10 +3,10 @@
     <header id="header">
         <div class="content">
             <nav class="navigation">
-                <RouterLink to="/">HOME<span></span></RouterLink>
-                <RouterLink to="/work">WORK<span></span></RouterLink>
-                <RouterLink to="/editor">EDITOR<span></span></RouterLink>
-                <RouterLink class="last" to="/contact">CONTACT<span></span></RouterLink>
+                <a href="#projects">PROJECTS<span></span></a>
+                <a href="#stats">STATS<span></span></a>
+                <a href="#skills">SKILLS<span></span></a>
+                <a href="#contact">CONTACT<span></span></a>
             </nav>
         </div>
     </header>
@@ -14,14 +14,14 @@
 
 <style scoped lang="scss">
 /* Imports */
-@import '@/assets/scss/import.scss';
+@import '@/assets/scss/script.scss';
 
 /* Component */
 #header {
     position: fixed;
     @include display(flex);
     @include flex-direction(row);
-    padding: min(3.5vw, 3.5vh);
+    padding: 2.5vw;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2);
@@ -40,67 +40,66 @@
             display: flex;
             flex-direction: row;
 
-            gap: 4rem;
-
             > a {
                 font-family: "GingerBold";
-                font-size: 1.1rem;
                 font-weight: bold;
 
                 text-align: center;
                 text-decoration: none;
                 color: var(--color-heading);
             }
-
-            > .last {
-                position: absolute;
-	            right: 0;
-            }
         }
     }
-}
-
-.router-link-exact-active {
-	position: relative;
-}
-
-.router-link-exact-active > span {
-	position: absolute;
-	display: block;
-
-	width: 100%;
-	height: 3px;
-	bottom: 0;
-
-	background-color: black;
 }
 
 @include for-phone-only {
 	#header > .content > .navigation {
-        @include display(flex);
-        @include flex-direction(column);
-
+        justify-content: space-evenly;
         width: 100%;
-
-        gap: 16px;
+        gap: 0;
 
         > a {
-            padding: 12px;
-            text-align: center;
-            border-radius: 5px;
+            padding: 12px 0;
+            font-size: 0.9rem;
         }
 
-        > .last {
+        > :last-child {
             position: static;
         }
     }
+}
 
-	.router-link-exact-active {
-		background-color: var(--color-background-mute);
-	}
+@include for-tablet-portrait-up {
+    #header > .content > .navigation {
+        justify-content: space-evenly;
+        width: 100%;
+        gap: 0;
 
-	.router-link-exact-active > span {
-		display: none;
-	}
+        > a {
+            padding: 12px 0;
+            font-size: 1rem;
+        }
+
+        > :last-child {
+            position: static;
+        }
+    }
+}
+
+@include for-tablet-landscape-up {
+    #header > .content > .navigation {
+        width: auto;
+        gap: 4rem;
+
+        > a {
+            padding: 0;
+            font-size: 1.1rem;
+        }
+
+        > :last-child {
+            position: absolute;
+            right: 0;
+        }
+    }
 }
 </style>

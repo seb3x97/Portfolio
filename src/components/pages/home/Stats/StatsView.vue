@@ -1,11 +1,8 @@
 <script lang="ts">
 /* Imports */
 
-//Libraries
-import gsap from 'gsap';
-
-//Components
-import StatsElementView from '@/components/pages/home/StatsElementView.vue';
+import TitleView from '@/components/pages/home/PageTitleView.vue';
+import StatsElementView from '@/components/pages/home/Stats/StatsElementView.vue';
 
 /* Constantes */
 
@@ -48,10 +45,11 @@ export default {
 		};
 	},
     components: {
+        TitleView,
         StatsElementView,
     },
     mounted() {
-        console.log(this.getWorkingDays());
+        //console.log(this.getWorkingDays());
     },
     methods: {
         getWorkingDays() {
@@ -83,25 +81,44 @@ export default {
 
 <template>
     <section id="stats">
-        <template v-for="stat in stats">
-            <StatsElementView
-                :icon="stat.icon"
-                :count="stat.count()"
-                :description="stat.description">
-            </StatsElementView>
-        </template>
+        <div class="stats">
+            <TitleView
+                title="Statistiques">
+            </TitleView>
+            <div class="list">
+                <template v-for="stat in stats">
+                    <StatsElementView
+                        :icon="stat.icon"
+                        :count="stat.count()"
+                        :description="stat.description">
+                    </StatsElementView>
+                </template>
+            </div>
+        </div>
     </section>
 </template>
 
 <style scoped lang="scss">
 /* Imports */
-@import '@/assets/scss/import.scss';
+@import '@/assets/scss/script.scss';
 
 /* Component */
 #stats {
-    @include display(flex);
-    @include flex-direction(row);
-    flex-wrap: wrap;
     width: 100%;
+    padding-top: 20vh;
+    
+    .stats {
+        @include display(flex);
+        @include flex-direction(column);
+        width: 100%;
+        gap: min(60px, 5vw);
+
+        > .list {
+            @include display(flex);
+            @include flex-direction(row);
+            flex-wrap: wrap;
+            width: 100%;
+        }
+    }
 }
 </style>

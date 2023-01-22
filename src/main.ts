@@ -6,7 +6,7 @@ import gsap from "gsap";
 import App from "@/components/App.vue";
 import router from "./router";
 
-import "@/assets/scss/import.scss";
+import "@/assets/scss/style.scss";
 
 const app = createApp(App);
 
