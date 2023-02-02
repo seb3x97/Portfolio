@@ -26,6 +26,8 @@
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.2);
     z-index: 10;
+    top: 0;
+    left: 0;
 
     > .content {
         position: relative;
