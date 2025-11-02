@@ -27,7 +27,7 @@ RUN npm install -g serve
 COPY --from=builder /app/dist ./dist
 
 # Exposer le port (modifiable selon ton choix)
-EXPOSE 40000
+EXPOSE 4000
 
 # Lancer le serveur sur le port défini
-CMD ["serve", "dist", "-l", "40000"]
+CMD ["serve", "dist", "-l", "4000"]
